@@ -3,18 +3,18 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
-public class authentificationPageTest extends zWebDriverSettings {
+public class AuthentificationPageTest extends zWebDriverSettings {
 
     @Test public void TestCase1() { System.out.println("Authentification functional test TRUE");
         driver.get("https://reverent-aryabhata-11cf33.netlify.com/");
-        driver.findElement(By.id("registerName")).sendKeys(zAuth.userNameTrue);
-        driver.findElement(By.id("FirstName")).sendKeys(zAuth.firstNameTrue);
-        driver.findElement(By.id("LastName")).sendKeys(zAuth.lastNameTrue);
-        driver.findElement(By.id("UserPassword")).sendKeys(zAuth.passwordStrong);
+        driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.userNameTrue);
+        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.firstNameTrue);
+        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.lastNameTrue);
+        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
         // ID поля ввода пароля и поля подтверждения пароля идентичны - делаем костыль
-        driver.findElement(By.cssSelector("body")).sendKeys(Keys.TAB, zAuth.passwordStrong);
-        driver.findElement(By.id("Phone")).sendKeys(zAuth.phoneTrue);
-        driver.findElement(By.id("OrgDisplayName")).sendKeys(zAuth.organizationTrue);
+        driver.findElement(By.cssSelector("body")).sendKeys(Keys.TAB, ConstantsAuth.passwordStrong);
+        driver.findElement(By.id("Phone")).sendKeys(ConstantsAuth.phoneTrue);
+        driver.findElement(By.id("OrgDisplayName")).sendKeys(ConstantsAuth.organizationTrue);
         driver.findElement(By.id("signupbtn")).click ();
         String title = driver.getTitle();
         try { Assert.assertTrue(title.equals("Test exercise")); }
@@ -22,13 +22,13 @@ public class authentificationPageTest extends zWebDriverSettings {
 
     @Test public void TestCase2() { System.out.println("Authentification functional test TRUE & TINY");
     driver.get("https://reverent-aryabhata-11cf33.netlify.com/");driver.findElement(By.cssSelector("body")).sendKeys(
-        Keys.TAB, zAuth.userNameTrue,
-        Keys.TAB, zAuth.firstNameTrue,
-        Keys.TAB, zAuth.lastNameTrue,
-        Keys.TAB, zAuth.passwordStrong,
-        Keys.TAB, zAuth.passwordStrong,
-        Keys.TAB, zAuth.phoneTrue,
-        Keys.TAB, zAuth.organizationTrue);
+        Keys.TAB, ConstantsAuth.userNameTrue,
+        Keys.TAB, ConstantsAuth.firstNameTrue,
+        Keys.TAB, ConstantsAuth.lastNameTrue,
+        Keys.TAB, ConstantsAuth.passwordStrong,
+        Keys.TAB, ConstantsAuth.passwordStrong,
+        Keys.TAB, ConstantsAuth.phoneTrue,
+        Keys.TAB, ConstantsAuth.organizationTrue);
         driver.findElement(By.id("signupbtn")).click ();
         String title = driver.getTitle();
         try { Assert.assertTrue(title.equals("Test exercise")); }
@@ -39,13 +39,13 @@ public class authentificationPageTest extends zWebDriverSettings {
 //        String title = driver.getTitle();
 //        try { Assert.assertTrue(title.equals("Data Analysis: Log In v0.1")); }
 //        catch (Exception e){System.out.println("We are not on authorisation page");}
-//        driver.findElement(By.id("registerName")).sendKeys(zAuth.userNameTrue);
-//        driver.findElement(By.id("FirstName")).sendKeys(zAuth.firstNameTrue);
-//        driver.findElement(By.id("LastName")).sendKeys(zAuth.lastNameTrue);
-//        driver.findElement(By.id("UserPassword")).sendKeys(zAuth.passwordStrong);
-//        driver.findElement(By.id("UserPassword")).sendKeys(zAuth.passwordStrong);
-//        driver.findElement(By.id("Phone")).sendKeys(zAuth.phoneTrue);
-//        driver.findElement(By.id("OrgDisplayName")).sendKeys(zAuth.organizationTrue);
+//        driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.userNameTrue);
+//        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.firstNameTrue);
+//        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.lastNameTrue);
+//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
+//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
+//        driver.findElement(By.id("Phone")).sendKeys(ConstantsAuth.phoneTrue);
+//        driver.findElement(By.id("OrgDisplayName")).sendKeys(ConstantsAuth.organizationTrue);
 //        driver.findElement(By.id("signupbtn")).click ();
 //        try { Assert.assertTrue(title.equals("Тестовое упражнение")); }
 //        catch (Exception e){System.out.println("We have not reached sign-up page");notify();}}
@@ -55,13 +55,13 @@ public class authentificationPageTest extends zWebDriverSettings {
 //        String title = driver.getTitle();
 //        try { Assert.assertTrue(title.equals("Data Analysis: Log In v0.1")); }
 //        catch (Exception e){System.out.println("We are not on authorisation page");}
-//        driver.findElement(By.id("registerName")).sendKeys(zAuth.userNameTrue);
-//        driver.findElement(By.id("FirstName")).sendKeys(zAuth.firstNameTrue);
-//        driver.findElement(By.id("LastName")).sendKeys(zAuth.lastNameTrue);
-//        driver.findElement(By.id("UserPassword")).sendKeys(zAuth.passwordStrong);
-//        driver.findElement(By.id("UserPassword")).sendKeys(zAuth.passwordStrong);
-//        driver.findElement(By.id("Phone")).sendKeys(zAuth.phoneTrue);
-//        driver.findElement(By.id("OrgDisplayName")).sendKeys(zAuth.organizationTrue);
+//        driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.userNameTrue);
+//        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.firstNameTrue);
+//        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.lastNameTrue);
+//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
+//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
+//        driver.findElement(By.id("Phone")).sendKeys(ConstantsAuth.phoneTrue);
+//        driver.findElement(By.id("OrgDisplayName")).sendKeys(ConstantsAuth.organizationTrue);
 //        driver.findElement(By.id("signupbtn")).click ();
 //        try { Assert.assertTrue(title.equals("Тестовое упражнение")); }
 //        catch (Exception e){System.out.println("We have not reached sign-up page");notify();}}
@@ -71,13 +71,13 @@ public class authentificationPageTest extends zWebDriverSettings {
 //        String title = driver.getTitle();
 //        try { Assert.assertTrue(title.equals("Data Analysis: Log In v0.1")); }
 //        catch (Exception e){System.out.println("We are not on authorisation page");}
-//        driver.findElement(By.id("registerName")).sendKeys(zAuth.userNameTrue);
-//        driver.findElement(By.id("FirstName")).sendKeys(zAuth.firstNameTrue);
-//        driver.findElement(By.id("LastName")).sendKeys(zAuth.lastNameTrue);
-//        driver.findElement(By.id("UserPassword")).sendKeys(zAuth.passwordStrong);
-//        driver.findElement(By.id("UserPassword")).sendKeys(zAuth.passwordStrong);
-//        driver.findElement(By.id("Phone")).sendKeys(zAuth.phoneTrue);
-//        driver.findElement(By.id("OrgDisplayName")).sendKeys(zAuth.organizationTrue);
+//        driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.userNameTrue);
+//        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.firstNameTrue);
+//        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.lastNameTrue);
+//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
+//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
+//        driver.findElement(By.id("Phone")).sendKeys(ConstantsAuth.phoneTrue);
+//        driver.findElement(By.id("OrgDisplayName")).sendKeys(ConstantsAuth.organizationTrue);
 //        driver.findElement(By.id("signupbtn")).click ();
 //        try { Assert.assertTrue(title.equals("Тестовое упражнение")); }
 //        catch (Exception e){System.out.println("We have not reached sign-up page");notify();}}
@@ -87,13 +87,13 @@ public class authentificationPageTest extends zWebDriverSettings {
 //        String title = driver.getTitle();
 //        try { Assert.assertTrue(title.equals("Data Analysis: Log In v0.1")); }
 //        catch (Exception e){System.out.println("We are not on authorisation page");}
-//        driver.findElement(By.id("registerName")).sendKeys(zAuth.userNameTrue);
-//        driver.findElement(By.id("FirstName")).sendKeys(zAuth.firstNameTrue);
-//        driver.findElement(By.id("LastName")).sendKeys(zAuth.lastNameTrue);
-//        driver.findElement(By.id("UserPassword")).sendKeys(zAuth.passwordStrong);
-//        driver.findElement(By.id("UserPassword")).sendKeys(zAuth.passwordStrong);
-//        driver.findElement(By.id("Phone")).sendKeys(zAuth.phoneTrue);
-//        driver.findElement(By.id("OrgDisplayName")).sendKeys(zAuth.organizationTrue);
+//        driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.userNameTrue);
+//        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.firstNameTrue);
+//        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.lastNameTrue);
+//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
+//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
+//        driver.findElement(By.id("Phone")).sendKeys(ConstantsAuth.phoneTrue);
+//        driver.findElement(By.id("OrgDisplayName")).sendKeys(ConstantsAuth.organizationTrue);
 //        driver.findElement(By.id("signupbtn")).click ();
 //        try { Assert.assertTrue(title.equals("Тестовое упражнение")); }
 //        catch (Exception e){System.out.println("We have not reached sign-up page");notify();}}
@@ -103,13 +103,13 @@ public class authentificationPageTest extends zWebDriverSettings {
 //        String title = driver.getTitle();
 //        try { Assert.assertTrue(title.equals("Data Analysis: Log In v0.1")); }
 //        catch (Exception e){System.out.println("We are not on authorisation page");}
-//        driver.findElement(By.id("registerName")).sendKeys(zAuth.userNameTrue);
-//        driver.findElement(By.id("FirstName")).sendKeys(zAuth.firstNameTrue);
-//        driver.findElement(By.id("LastName")).sendKeys(zAuth.lastNameTrue);
-//        driver.findElement(By.id("UserPassword")).sendKeys(zAuth.passwordStrong);
-//        driver.findElement(By.id("UserPassword")).sendKeys(zAuth.passwordStrong);
-//        driver.findElement(By.id("Phone")).sendKeys(zAuth.phoneTrue);
-//        driver.findElement(By.id("OrgDisplayName")).sendKeys(zAuth.organizationTrue);
+//        driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.userNameTrue);
+//        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.firstNameTrue);
+//        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.lastNameTrue);
+//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
+//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
+//        driver.findElement(By.id("Phone")).sendKeys(ConstantsAuth.phoneTrue);
+//        driver.findElement(By.id("OrgDisplayName")).sendKeys(ConstantsAuth.organizationTrue);
 //        driver.findElement(By.id("signupbtn")).click ();
 //        try { Assert.assertTrue(title.equals("Тестовое упражнение")); }
 //        catch (Exception e){System.out.println("We have not reached sign-up page");notify();}}
@@ -119,13 +119,13 @@ public class authentificationPageTest extends zWebDriverSettings {
 //        String title = driver.getTitle();
 //        try { Assert.assertTrue(title.equals("Data Analysis: Log In v0.1")); }
 //        catch (Exception e){System.out.println("We are not on authorisation page");}
-//        driver.findElement(By.id("registerName")).sendKeys(zAuth.userNameTrue);
-//        driver.findElement(By.id("FirstName")).sendKeys(zAuth.firstNameTrue);
-//        driver.findElement(By.id("LastName")).sendKeys(zAuth.lastNameTrue);
-//        driver.findElement(By.id("UserPassword")).sendKeys(zAuth.passwordStrong);
-//        driver.findElement(By.id("UserPassword")).sendKeys(zAuth.passwordStrong);
-//        driver.findElement(By.id("Phone")).sendKeys(zAuth.phoneTrue);
-//        driver.findElement(By.id("OrgDisplayName")).sendKeys(zAuth.organizationTrue);
+//        driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.userNameTrue);
+//        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.firstNameTrue);
+//        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.lastNameTrue);
+//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
+//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
+//        driver.findElement(By.id("Phone")).sendKeys(ConstantsAuth.phoneTrue);
+//        driver.findElement(By.id("OrgDisplayName")).sendKeys(ConstantsAuth.organizationTrue);
 //        driver.findElement(By.id("signupbtn")).click ();
 //        try { Assert.assertTrue(title.equals("Тестовое упражнение")); }
 //        catch (Exception e){System.out.println("We have not reached sign-up page");notify();}}
@@ -135,13 +135,13 @@ public class authentificationPageTest extends zWebDriverSettings {
 //        String title = driver.getTitle();
 //        try { Assert.assertTrue(title.equals("Data Analysis: Log In v0.1")); }
 //        catch (Exception e){System.out.println("We are not on authorisation page");}
-//        driver.findElement(By.id("registerName")).sendKeys(zAuth.userNameTrue);
-//        driver.findElement(By.id("FirstName")).sendKeys(zAuth.firstNameTrue);
-//        driver.findElement(By.id("LastName")).sendKeys(zAuth.lastNameTrue);
-//        driver.findElement(By.id("UserPassword")).sendKeys(zAuth.passwordStrong);
-//        driver.findElement(By.id("UserPassword")).sendKeys(zAuth.passwordStrong);
-//        driver.findElement(By.id("Phone")).sendKeys(zAuth.phoneTrue);
-//        driver.findElement(By.id("OrgDisplayName")).sendKeys(zAuth.organizationTrue);
+//        driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.userNameTrue);
+//        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.firstNameTrue);
+//        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.lastNameTrue);
+//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
+//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
+//        driver.findElement(By.id("Phone")).sendKeys(ConstantsAuth.phoneTrue);
+//        driver.findElement(By.id("OrgDisplayName")).sendKeys(ConstantsAuth.organizationTrue);
 //        driver.findElement(By.id("signupbtn")).click ();
 //        try { Assert.assertTrue(title.equals("Тестовое упражнение")); }
 //        catch (Exception e){System.out.println("We have not reached sign-up page");notify();}}
@@ -151,13 +151,13 @@ public class authentificationPageTest extends zWebDriverSettings {
 //        String title = driver.getTitle();
 //        try { Assert.assertTrue(title.equals("Data Analysis: Log In v0.1")); }
 //        catch (Exception e){System.out.println("We are not on authorisation page");}
-//        driver.findElement(By.id("registerName")).sendKeys(zAuth.userNameTrue);
-//        driver.findElement(By.id("FirstName")).sendKeys(zAuth.firstNameTrue);
-//        driver.findElement(By.id("LastName")).sendKeys(zAuth.lastNameTrue);
-//        driver.findElement(By.id("UserPassword")).sendKeys(zAuth.passwordStrong);
-//        driver.findElement(By.id("UserPassword")).sendKeys(zAuth.passwordStrong);
-//        driver.findElement(By.id("Phone")).sendKeys(zAuth.phoneTrue);
-//        driver.findElement(By.id("OrgDisplayName")).sendKeys(zAuth.organizationTrue);
+//        driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.userNameTrue);
+//        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.firstNameTrue);
+//        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.lastNameTrue);
+//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
+//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
+//        driver.findElement(By.id("Phone")).sendKeys(ConstantsAuth.phoneTrue);
+//        driver.findElement(By.id("OrgDisplayName")).sendKeys(ConstantsAuth.organizationTrue);
 //        driver.findElement(By.id("signupbtn")).click ();
 //        try { Assert.assertTrue(title.equals("Тестовое упражнение")); }
 //        catch (Exception e){System.out.println("We have not reached sign-up page");notify();}}

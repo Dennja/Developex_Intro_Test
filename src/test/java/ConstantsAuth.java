@@ -1,6 +1,6 @@
 import org.openqa.selenium.By;
 
-public class zAuth {
+public class ConstantsAuth {
     // EMAIL OR USERNAME
     static final String userNameTrue = "dennjacrafter@gmail.com";
     static final String userNameFalse = "2";
