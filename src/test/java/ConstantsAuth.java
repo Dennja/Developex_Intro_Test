@@ -2,53 +2,37 @@ import org.openqa.selenium.By;
 
 public class ConstantsAuth {
     // EMAIL OR USERNAME
-    static final String userNameTrue = "dennjacrafter@gmail.com";
+    static final String USERNAMETRUE = "dennjacrafter@gmail.com";
     static final String userNameFalse = "2";
     static final String userNameFalse1 = "3";
-    static final String userNameFalse2 = "4";
-    static final String userNameFalse3 = "";
-
     // FIRST NAME
-    static final String firstNameTrue = "Denis";
-    static final String firstNameFalse = "12345Denis";
-    static final String firstNameFalse1 = "#Denis";
-    static final String firstNameFalse2 = "-1Denis";
-    static final String firstNameFalse3 = "5";
-
+    static final String FIRSTNAMETRUE = "Denis";
+    static final String FIRSTNAME_LOWER = "denis";
+    static final String FIRSTNAME_SYMBOLS_ONLY = "#()*&&&&^^%";
+    static final String FIRSTNAME_NUM_ONLY = "19237649";
+    static final String FIRSTNAME_40_LETTERS = "Dennjaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
     // LAST NAME
-    static final String lastNameTrue = "Dragomirov";
-    static final String lastNameFalse = "12345Dragomirov";
-    static final String lastNameFalse1 = "#Dragomirov";
-    static final String lastNameFalse2 = "-Dragomirov";
-    static final String lastNameFalse3 = "5";
-
+    static final String LASTNAMETRUE = "Dragomirov";
+    static final String LASTTNAME_LOWER = "dragomirov";
+    static final String LASTTNAME_SYMBOLS_ONLY = "#$$%^&&&^";
+    static final String LASTTNAME_NUM_ONLY = "6508876";
+    static final String LASTTNAME_20_LETTERS = "Dragomiiiiiiiiiiirov";
     // PASSWORD
-    static final String passwordStrong = "j3qq4h7h2v#";
-    static final String passwordWeek = "denja";
-    static final String passwordNormal = "j3qq4h7h";
-    static final String passwordFalse2 = "";
-    static final String passwordFalse3 = "";
-
-    // PASSWORD CONFIRMATION
-    static final String passwordConfStrong = "j3qq4h7h2v#";
-    static final String passwordConfWeek = "denja";
-    static final String passwordConfNormal = "j3qq4h7h";
-    static final String passwordConfFalse2 = "";
-    static final String passwordConfFalse3 = "";
-
+    static final String PASSWORD_STRONG = "j3qq4h7h2v#";
+    static final String PASSWORD_WEAK = "denja";
+    static final String PASSWORD_NORMAL = "j3qq4h7h";
+    static final String PASSWORD_11_LOWER_ONLY = "dennnjaaaaa";
+    static final String PASSWORD_11_NUM_ONLY = "66666666666";
     // PHONE
-    static final String phoneTrue = "+380937197233";
-    static final String phoneFalse = "80937197233";
-    static final String phoneFalse1 = "0937197233";
-    static final String phoneFalse2 = "ergonomic";
-    static final String phoneFalse3 = "+_)(*&^%$#@";
-
+    static final String PHONETRUE   = "+380937197233";
+    static final String PHONE_NUM_11 = "80937197233";
+    static final String PHONE_NUM_10 = "0937197233";
+    static final String PHONE_LETTERS = "ergonomic";
+    static final String PHONE_SYMBOLS_ONLY = "+_)(*&^%$#@";
     // ORGANIZATION
-    static final String organizationTrue = "Developex";
-    static final String organizationFalse = "!@#$%^&*()_+|";
-    static final String organizationFalse1 = "1234567890";
-    static final String organizationFalse2 = "";
-    static final String organizationFalse3 = "";
+    static final String ORG_TRUE = "Developex";
+    static final String ORG_SYMBOLS_ONLY = "!@#$%^&*()_+|";
+    static final String ORG_NUMBERS_ONLY = "1234567890";
 
 
 
