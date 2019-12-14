@@ -2,12 +2,12 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.PageFactory;
 
 
 public class AuthentificationPageTest extends zWebDriverSettings {
 
     @Test public void TestCase1() { System.out.println("Authentification functional test, data control group");
-        driver.get("https://reverent-aryabhata-11cf33.netlify.com/");
         driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.USERNAMETRUE);
         driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.LASTNAMETRUE);
         driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.LASTNAMETRUE);
@@ -20,8 +20,8 @@ public class AuthentificationPageTest extends zWebDriverSettings {
         try { Assert.assertTrue(title.equals("Test exercise")); }
         catch (Exception e){System.out.println("we did not finish the registration process");notify();}}
 
-    @Test public void TestCase2() { System.out.println("Authentification functional test TRUE & TINY");
-    driver.get("https://reverent-aryabhata-11cf33.netlify.com/");driver.findElement(By.cssSelector("body")).sendKeys(
+    @Test public void TestCase2() { System.out.println("Authentification functional test, data control group(TRUE & TINY)");
+        driver.findElement(By.cssSelector("body")).sendKeys(
         Keys.TAB, ConstantsAuth.USERNAMETRUE,
         Keys.TAB, ConstantsAuth.FIRSTNAMETRUE,
         Keys.TAB, ConstantsAuth.LASTNAMETRUE,
@@ -35,7 +35,6 @@ public class AuthentificationPageTest extends zWebDriverSettings {
         catch (Exception e){System.out.println("we did not pass the registration");notify();}}
 
     @Test public void TestCase3() { System.out.println ("'All fields are required to fill' test 1");
-    driver.get("https://reverent-aryabhata-11cf33.netlify.com/");
     driver.findElement (By.id ("signupbtn")).click();
     String title = driver.getTitle();
     try { Assert.assertEquals ("Test exercise", title);}
@@ -72,121 +71,128 @@ public class AuthentificationPageTest extends zWebDriverSettings {
     catch (AssertionError e) { System.out.println("CORRUPTED!"); notify();}
     System.out.println("  visible");}
 
-    @Test public void TestCase4() { System.out.println("First/Last name fields  test 1");
-        driver.get("https://reverent-aryabhata-11cf33.netlify.com/");
+    @Test public void TestCase4() { System.out.println("First/Last name fields  test 1, FIRSTNAME_LOWER");
         driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.USERNAMETRUE);
-
- //       driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.FIRSTNAME_LOWER);
-
-        String errorMsg = driver.findElementByClassName ("field-validation-error").getText();
-        try {Assert.assertEquals(null,errorMsg);}
-        catch (AssertionError e) { System.out.println("CORRUPTED!"); notify();}
-//        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.FIRSTNAME_NUM_ONLY);
-//        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.FIRSTNAME_SYMBOLS_ONLY);
-//        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.FIRSTNAME_40_LETTERS);
-
-
+        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.FIRSTNAME_LOWER);
         driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.LASTNAMETRUE);
-
         driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.PASSWORD_STRONG);
         driver.findElement(By.xpath ("//*[@id=\"registerForm\"]/fieldset/div[5]/input")).sendKeys(ConstantsAuth.PASSWORD_STRONG);
         driver.findElement(By.id("Phone")).sendKeys(ConstantsAuth.PHONETRUE);
         driver.findElement(By.id("OrgDisplayName")).sendKeys(ConstantsAuth.ORG_TRUE);
         driver.findElement(By.id("signupbtn")).click ();
-        }}
+        String title = driver.getTitle();
+        try { Assert.assertEquals ("Test exercise", title);}
+        catch (AssertionError e) { System.out.println("We are not on registration page");notify();}}
 
-//    @Test public void TestCase5() { System.out.println("Authentification functional test 5");
-//        driver.get("https://reverent-aryabhata-11cf33.netlify.com/");
-//        String title = driver.getTitle();
-//        try { Assert.assertTrue(title.equals("Data Analysis: Log In v0.1")); }
-//        catch (Exception e){System.out.println("We are not on authorisation page");}
-//        driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.userNameTrue);
-//        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.firstNameTrue);
-//        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.lastNameTrue);
-//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
-//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
-//        driver.findElement(By.id("Phone")).sendKeys(ConstantsAuth.phoneTrue);
-//        driver.findElement(By.id("OrgDisplayName")).sendKeys(ConstantsAuth.organizationTrue);
-//        driver.findElement(By.id("signupbtn")).click ();
-//        try { Assert.assertTrue(title.equals("Тестовое упражнение")); }
-//        catch (Exception e){System.out.println("We have not reached sign-up page");notify();}}
-//
-//    @Test public void TestCase6() { System.out.println("Authentification functional test 5");
-//        driver.get("https://reverent-aryabhata-11cf33.netlify.com/");
-//        String title = driver.getTitle();
-//        try { Assert.assertTrue(title.equals("Data Analysis: Log In v0.1")); }
-//        catch (Exception e){System.out.println("We are not on authorisation page");}
-//        driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.userNameTrue);
-//        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.firstNameTrue);
-//        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.lastNameTrue);
-//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
-//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
-//        driver.findElement(By.id("Phone")).sendKeys(ConstantsAuth.phoneTrue);
-//        driver.findElement(By.id("OrgDisplayName")).sendKeys(ConstantsAuth.organizationTrue);
-//        driver.findElement(By.id("signupbtn")).click ();
-//        try { Assert.assertTrue(title.equals("Тестовое упражнение")); }
-//        catch (Exception e){System.out.println("We have not reached sign-up page");notify();}}
-//
-//    @Test public void TestCase7() { System.out.println("Authentification functional test 5");
-//        driver.get("https://reverent-aryabhata-11cf33.netlify.com/");
-//        String title = driver.getTitle();
-//        try { Assert.assertTrue(title.equals("Data Analysis: Log In v0.1")); }
-//        catch (Exception e){System.out.println("We are not on authorisation page");}
-//        driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.userNameTrue);
-//        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.firstNameTrue);
-//        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.lastNameTrue);
-//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
-//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
-//        driver.findElement(By.id("Phone")).sendKeys(ConstantsAuth.phoneTrue);
-//        driver.findElement(By.id("OrgDisplayName")).sendKeys(ConstantsAuth.organizationTrue);
-//        driver.findElement(By.id("signupbtn")).click ();
-//        try { Assert.assertTrue(title.equals("Тестовое упражнение")); }
-//        catch (Exception e){System.out.println("We have not reached sign-up page");notify();}}
-//
-//    @Test public void TestCase8() { System.out.println("Authentification functional test 5");
-//        driver.get("https://reverent-aryabhata-11cf33.netlify.com/");
-//        String title = driver.getTitle();
-//        try { Assert.assertTrue(title.equals("Data Analysis: Log In v0.1")); }
-//        catch (Exception e){System.out.println("We are not on authorisation page");}
-//        driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.userNameTrue);
-//        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.firstNameTrue);
-//        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.lastNameTrue);
-//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
-//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
-//        driver.findElement(By.id("Phone")).sendKeys(ConstantsAuth.phoneTrue);
-//        driver.findElement(By.id("OrgDisplayName")).sendKeys(ConstantsAuth.organizationTrue);
-//        driver.findElement(By.id("signupbtn")).click ();
-//        try { Assert.assertTrue(title.equals("Тестовое упражнение")); }
-//        catch (Exception e){System.out.println("We have not reached sign-up page");notify();}}
-//
-//    @Test public void TestCase9() { System.out.println("Authentification functional test 5");
-//        driver.get("https://reverent-aryabhata-11cf33.netlify.com/");
-//        String title = driver.getTitle();
-//        try { Assert.assertTrue(title.equals("Data Analysis: Log In v0.1")); }
-//        catch (Exception e){System.out.println("We are not on authorisation page");}
-//        driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.userNameTrue);
-//        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.firstNameTrue);
-//        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.lastNameTrue);
-//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
-//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
-//        driver.findElement(By.id("Phone")).sendKeys(ConstantsAuth.phoneTrue);
-//        driver.findElement(By.id("OrgDisplayName")).sendKeys(ConstantsAuth.organizationTrue);
-//        driver.findElement(By.id("signupbtn")).click ();
-//        try { Assert.assertTrue(title.equals("Тестовое упражнение")); }
-//        catch (Exception e){System.out.println("We have not reached sign-up page");notify();}}
-//
-//    @Test public void TestCase10() { System.out.println("Authentification functional test 5");
-//        driver.get("https://reverent-aryabhata-11cf33.netlify.com/");
-//        String title = driver.getTitle();
-//        try { Assert.assertTrue(title.equals("Data Analysis: Log In v0.1")); }
-//        catch (Exception e){System.out.println("We are not on authorisation page");}
-//        driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.userNameTrue);
-//        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.firstNameTrue);
-//        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.lastNameTrue);
-//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
-//        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.passwordStrong);
-//        driver.findElement(By.id("Phone")).sendKeys(ConstantsAuth.phoneTrue);
-//        driver.findElement(By.id("OrgDisplayName")).sendKeys(ConstantsAuth.organizationTrue);
-//        driver.findElement(By.id("signupbtn")).click ();
-//        try { Assert.assertTrue(title.equals("Тестовое упражнение")); }
-//        catch (Exception e){System.out.println("We have not reached sign-up page");notify();}}
+
+    @Test public void TestCase5() { System.out.println("Authentification functional test 2, FIRSTNAME_NUM_ONLY");
+        driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.USERNAMETRUE);
+        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.FIRSTNAME_NUM_ONLY);
+        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.LASTNAMETRUE);
+        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.PASSWORD_STRONG);
+        driver.findElement(By.xpath ("//*[@id=\"registerForm\"]/fieldset/div[5]/input")).sendKeys(ConstantsAuth.PASSWORD_STRONG);
+        driver.findElement(By.id("Phone")).sendKeys(ConstantsAuth.PHONETRUE);
+        driver.findElement(By.id("OrgDisplayName")).sendKeys(ConstantsAuth.ORG_TRUE);
+        driver.findElement(By.id("signupbtn")).click ();
+        String title = driver.getTitle();
+        try { Assert.assertEquals ("Test exercise", title);}
+        catch (AssertionError e) { System.out.println("We are not on registration page");}}
+
+    @Test public void TestCase6() { System.out.println("Authentification functional test 5");
+        driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.USERNAMETRUE);
+        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.FIRSTNAME_SYMBOLS_ONLY);
+        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.LASTNAMETRUE);
+        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.PASSWORD_STRONG);
+        driver.findElement(By.xpath ("//*[@id=\"registerForm\"]/fieldset/div[5]/input")).sendKeys(ConstantsAuth.PASSWORD_STRONG);
+        driver.findElement(By.id("Phone")).sendKeys(ConstantsAuth.PHONETRUE);
+        driver.findElement(By.id("OrgDisplayName")).sendKeys(ConstantsAuth.ORG_TRUE);
+        driver.findElement(By.id("signupbtn")).click ();
+        String title = driver.getTitle();
+        try { Assert.assertEquals ("Test exercise", title);}
+        catch (AssertionError e) { System.out.println("We are not on registration page");notify();}}
+
+    @Test public void TestCase7() { System.out.println("Authentification functional test 5");
+        driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.USERNAMETRUE);
+        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.FIRSTNAME_40_LETTERS);
+        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.LASTNAMETRUE);
+        driver.findElement(By.id("UserPassword")).sendKeys(ConstantsAuth.PASSWORD_STRONG);
+        driver.findElement(By.xpath ("//*[@id=\"registerForm\"]/fieldset/div[5]/input")).sendKeys(ConstantsAuth.PASSWORD_STRONG);
+        driver.findElement(By.id("Phone")).sendKeys(ConstantsAuth.PHONETRUE);
+        driver.findElement(By.id("OrgDisplayName")).sendKeys(ConstantsAuth.ORG_TRUE);
+        driver.findElement(By.id("signupbtn")).click ();
+        String title = driver.getTitle();
+        try { Assert.assertEquals ("Test exercise", title);}
+        catch (AssertionError e) { System.out.println("We are not on registration page");notify();}}
+
+
+    @Test public void TestCase8() { System.out.println("Authentification functional test 8, username");
+        SignUpPageElements signUpPageElements = PageFactory.initElements (driver, SignUpPageElements.class);
+        signUpPageElements.open ();
+        driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.USERNAME_NUM_ONLY);
+        signUpPageElements.fillForm_Exept_registerName ();
+        String title = driver.getTitle();
+        try { Assert.assertEquals ("Test exercise", title);}
+        catch (AssertionError e) { System.out.println("registration is not passed");notify();}
+        signUpPageElements.open ();
+        driver.findElement(By.id("registerName")).sendKeys(ConstantsAuth.USERNAME_SYMBOLS_ONLY);
+        signUpPageElements.fillForm_Exept_registerName ();
+        try { Assert.assertEquals ("Test exercise", title);}
+        catch (AssertionError e) { System.out.println("registration is not passed");notify();}}
+
+    @Test public void TestCase9() { System.out.println("Authentification test, FirstName field test.");
+        SignUpPageElements signUpPageElements = PageFactory.initElements (driver, SignUpPageElements.class);
+        signUpPageElements.open ();System.out.println("filling FirstName with lower register");
+        String title = driver.getTitle ();
+        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.FIRSTNAME_LOWER);
+        signUpPageElements.fillForm_Exept_FirstName ();
+        try { Assert.assertEquals ("Test exercise", title);}
+        catch (AssertionError e) { System.out.println("registration is not passed");notify();}
+        signUpPageElements.open ();System.out.println("filling FirstName with symbols only");
+        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.FIRSTNAME_SYMBOLS_ONLY);
+        signUpPageElements.fillForm_Exept_FirstName ();
+        try { Assert.assertEquals ("Test exercise", title);}
+        catch (AssertionError e) { System.out.println("registration is not passed");notify();}
+        signUpPageElements.open ();System.out.println("filling FirstName with numbers only");
+        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.FIRSTNAME_NUM_ONLY);
+        signUpPageElements.fillForm_Exept_FirstName ();
+        try { Assert.assertEquals ("Test exercise", title);}
+        catch (AssertionError e) { System.out.println("registration is not passed");notify();}
+        signUpPageElements.open ();System.out.println("filling FirstName with 40 letters");
+        driver.findElement(By.id("FirstName")).sendKeys(ConstantsAuth.FIRSTNAME_40_LETTERS);
+        signUpPageElements.fillForm_Exept_FirstName ();
+        try { Assert.assertEquals ("Test exercise", title);}
+        catch (AssertionError e) { System.out.println("registration is not passed");notify();}}
+
+    @Test public void TestCase10() { System.out.println("Authentification functional test 5");
+        SignUpPageElements signUpPageElements = PageFactory.initElements (driver, SignUpPageElements.class);
+
+        signUpPageElements.open ();System.out.println("filling FirstName with lower register");
+        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.LASTNAME_LOWER);
+        signUpPageElements.fillForm_Exept_LastName ();
+        String title = driver.findElement(By.xpath ("//*[.='WELCOME']")).getText();
+        try { Assert.assertEquals ("WELCOME",title);}
+        catch (AssertionError e) { System.out.println("registration is not passed");notify();}
+
+        signUpPageElements.open ();System.out.println("filling FirstName with symbols only");
+        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.LASTNAME_SYMBOLS_ONLY);
+        signUpPageElements.fillForm_Exept_LastName ();
+        try { Assert.assertEquals ("WELCOME",title);}
+        catch (AssertionError e) { System.out.println("registration is not passed");notify();}
+
+        signUpPageElements.open ();System.out.println("filling FirstName with numbers only");
+        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.LASTNAME_NUM_ONLY);
+        signUpPageElements.fillForm_Exept_LastName ();
+        try { Assert.assertEquals ("WELCOME",title);}
+        catch (AssertionError e) { System.out.println("registration is not passed");notify();}
+
+        signUpPageElements.open ();System.out.println("filling FirstName with 20 letters");
+        driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.LASTNAME_20_LETTERS);
+        signUpPageElements.fillForm_Exept_LastName ();
+        try { Assert.assertEquals ("WELCOME",title);}
+        catch (AssertionError e) { System.out.println("registration is not passed");notify();}}
+
+
+
+}
+//        try { Assert.assertNotNull(driver.findElement(By.xpath ("//*[.='Field cannot be empty']")).isDisplayed ());}
+//        catch (AssertionFailure e) { System.out.println("  visible");}

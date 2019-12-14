@@ -1,10 +1,11 @@
 import org.openqa.selenium.By;
 
 public class ConstantsAuth {
+
     // EMAIL OR USERNAME
     static final String USERNAMETRUE = "dennjacrafter@gmail.com";
-    static final String userNameFalse = "2";
-    static final String userNameFalse1 = "3";
+    static final String USERNAME_NUM_ONLY = "12345";
+    static final String USERNAME_SYMBOLS_ONLY = "!@@@#$%^&*(";
     // FIRST NAME
     static final String FIRSTNAMETRUE = "Denis";
     static final String FIRSTNAME_LOWER = "denis";
@@ -13,10 +14,10 @@ public class ConstantsAuth {
     static final String FIRSTNAME_40_LETTERS = "Dennjaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
     // LAST NAME
     static final String LASTNAMETRUE = "Dragomirov";
-    static final String LASTTNAME_LOWER = "dragomirov";
-    static final String LASTTNAME_SYMBOLS_ONLY = "#$$%^&&&^";
-    static final String LASTTNAME_NUM_ONLY = "6508876";
-    static final String LASTTNAME_20_LETTERS = "Dragomiiiiiiiiiiirov";
+    static final String LASTNAME_LOWER = "dragomirov";
+    static final String LASTNAME_SYMBOLS_ONLY = "#$$%^&&&^";
+    static final String LASTNAME_NUM_ONLY = "6508876";
+    static final String LASTNAME_20_LETTERS = "Dragomiiiiiiiiiiirov";
     // PASSWORD
     static final String PASSWORD_STRONG = "j3qq4h7h2v#";
     static final String PASSWORD_WEAK = "denja";
