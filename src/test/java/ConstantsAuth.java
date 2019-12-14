@@ -6,6 +6,7 @@ public class ConstantsAuth {
     static final String USERNAMETRUE = "dennjacrafter@gmail.com";
     static final String USERNAME_NUM_ONLY = "12345";
     static final String USERNAME_SYMBOLS_ONLY = "!@@@#$%^&*(";
+    static final String USERNAME_LETTERS_ONLY = "fzsdgasdgb";
     // FIRST NAME
     static final String FIRSTNAMETRUE = "Denis";
     static final String FIRSTNAME_LOWER = "denis";
