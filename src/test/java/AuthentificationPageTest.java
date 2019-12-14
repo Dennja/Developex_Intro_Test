@@ -2,6 +2,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 
@@ -163,36 +164,125 @@ public class AuthentificationPageTest extends zWebDriverSettings {
         try { Assert.assertEquals ("Test exercise", title);}
         catch (AssertionError e) { System.out.println("registration is not passed");notify();}}
 
-    @Test public void TestCase10() { System.out.println("Authentification functional test 5");
+    @Test public void TestCase10() { System.out.println("Authentification test, LastName field test.");
         SignUpPageElements signUpPageElements = PageFactory.initElements (driver, SignUpPageElements.class);
 
-        signUpPageElements.open ();System.out.println("filling FirstName with lower register");
+            signUpPageElements.open ();System.out.println("filling FirstName with lower register");
         driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.LASTNAME_LOWER);
         signUpPageElements.fillForm_Exept_LastName ();
         String title = driver.findElement(By.xpath ("//*[.='WELCOME']")).getText();
         try { Assert.assertEquals ("WELCOME",title);}
-        catch (AssertionError e) { System.out.println("registration is not passed");notify();}
-
-        signUpPageElements.open ();System.out.println("filling FirstName with symbols only");
+        catch (AssertionError e) { System.out.println("Registration is not passed");notify();}
+        System.out.println("Registration is successful");
+            signUpPageElements.open ();System.out.println("filling FirstName with symbols only");
         driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.LASTNAME_SYMBOLS_ONLY);
         signUpPageElements.fillForm_Exept_LastName ();
         try { Assert.assertEquals ("WELCOME",title);}
-        catch (AssertionError e) { System.out.println("registration is not passed");notify();}
-
-        signUpPageElements.open ();System.out.println("filling FirstName with numbers only");
+        catch (AssertionError e) { System.out.println("Registration is not passed");notify();}
+        System.out.println("Registration is successful");
+            signUpPageElements.open ();System.out.println("filling FirstName with numbers only");
         driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.LASTNAME_NUM_ONLY);
         signUpPageElements.fillForm_Exept_LastName ();
         try { Assert.assertEquals ("WELCOME",title);}
-        catch (AssertionError e) { System.out.println("registration is not passed");notify();}
-
-        signUpPageElements.open ();System.out.println("filling FirstName with 20 letters");
+        catch (AssertionError e) { System.out.println("Registration is not passed");notify();}
+        System.out.println("Registration is successful");
+            signUpPageElements.open ();System.out.println("filling FirstName with 20 letters");
         driver.findElement(By.id("LastName")).sendKeys(ConstantsAuth.LASTNAME_20_LETTERS);
         signUpPageElements.fillForm_Exept_LastName ();
         try { Assert.assertEquals ("WELCOME",title);}
-        catch (AssertionError e) { System.out.println("registration is not passed");notify();}}
+        catch (AssertionError e) { System.out.println("Registration is not passed");notify();}
+        System.out.println("Registration is successful");}
+
+    @Test public void TestCase11() { System.out.println("Password force recognition");
+        SignUpPageElements signUpPageElements = PageFactory.initElements (driver, SignUpPageElements.class);
+            signUpPageElements.open (); System.out.println("    filling UserPassword with strong password");
+        driver.findElement (By.id ("UserPassword")).sendKeys (ConstantsAuth.PASSWORD_STRONG);
+        driver.findElement (By.xpath ("//*[@id=\"registerForm\"]/fieldset/div[5]/input")).sendKeys (ConstantsAuth.PASSWORD_STRONG);
+        String pwdWeakMsg = driver.findElement(By.xpath ("//*[.='\n"+"                                            Password strength: weak\n"+"                                        ']")).getText();
+        String pwdNotWeakMsg = "Password strength perceived not as weak";
+        String pwdIsWeak = "Password strength perceived as weak";
+        String pwdError = "Password strength: weak1";
+        try { Assert.assertEquals ("Password strength: weak",pwdWeakMsg);}
+        catch (AssertionError e) { System.out.println(pwdNotWeakMsg);notify();}
+        System.out.println(pwdIsWeak);
+            signUpPageElements.open (); System.out.println("    filling FirstName with symbols only");
+        driver.findElement (By.id ("UserPassword")).sendKeys (ConstantsAuth.PASSWORD_WEAK);
+        driver.findElement (By.xpath ("//*[@id=\"registerForm\"]/fieldset/div[5]/input")).sendKeys (ConstantsAuth.PASSWORD_WEAK);
+        try { Assert.assertEquals (pwdError,pwdWeakMsg);}
+        catch (AssertionError e) { System.out.println(pwdNotWeakMsg);notify();}
+        System.out.println(pwdIsWeak);
+            signUpPageElements.open (); System.out.println("    filling FirstName with numbers only");
+        driver.findElement (By.id ("UserPassword")).sendKeys (ConstantsAuth.PASSWORD_NORMAL);
+        driver.findElement (By.xpath ("//*[@id=\"registerForm\"]/fieldset/div[5]/input")).sendKeys (ConstantsAuth.PASSWORD_NORMAL);
+        try { Assert.assertEquals (pwdError,pwdWeakMsg);}
+        catch (AssertionError e) { System.out.println(pwdNotWeakMsg);notify();}
+        System.out.println(pwdIsWeak);
+            signUpPageElements.open (); System.out.println("    filling FirstName with 20 letters");
+        driver.findElement (By.id ("UserPassword")).sendKeys (ConstantsAuth.PASSWORD_11_LOWER_ONLY);
+        driver.findElement (By.xpath ("//*[@id=\"registerForm\"]/fieldset/div[5]/input")).sendKeys (ConstantsAuth.PASSWORD_11_LOWER_ONLY);
+        try { Assert.assertEquals (pwdError,pwdWeakMsg);}
+        catch (AssertionError e) { System.out.println(pwdNotWeakMsg);notify();}
+        System.out.println(pwdIsWeak);
+            signUpPageElements.open ();System.out.println("    filling FirstName with 20 letters");
+        driver.findElement (By.id ("UserPassword")).sendKeys (ConstantsAuth.PASSWORD_11_NUM_ONLY);
+        driver.findElement (By.xpath ("//*[@id=\"registerForm\"]/fieldset/div[5]/input")).sendKeys (ConstantsAuth.PASSWORD_11_NUM_ONLY);
+        try { Assert.assertEquals (pwdError,pwdWeakMsg);}
+        catch (AssertionError e) { System.out.println(pwdNotWeakMsg);notify();}
+        System.out.println(pwdIsWeak);
+    }
+    @Test public void TestCase12() { System.out.println("Authentification test, Phone field test.");
+        SignUpPageElements signUpPageElements = PageFactory.initElements (driver, SignUpPageElements.class);
+            signUpPageElements.open (); System.out.println("    filling UserPassword with strong password");
+        driver.findElement (By.id ("Phone")).sendKeys (ConstantsAuth.PHONE_NUM_11);
+        signUpPageElements.fillForm_Exept_Phone ();
+        String title = driver.findElement(By.xpath ("//*[.='WELCOME']")).getText();
+        try { Assert.assertEquals ("WELCOME",title);}
+        catch (AssertionError e) { System.out.println("Registration is not passed");notify();}
+        System.out.println("Registration is successful");
+            signUpPageElements.open (); System.out.println("    filling UserPassword with strong password");
+        driver.findElement (By.id ("Phone")).sendKeys (ConstantsAuth.PHONE_NUM_10);
+        signUpPageElements.fillForm_Exept_Phone ();
+        try { Assert.assertEquals ("WELCOME",title);}
+        catch (AssertionError e) { System.out.println("Registration is not passed");notify();}
+        System.out.println("Registration is successful");
+            signUpPageElements.open (); System.out.println("    filling UserPassword with strong password");
+        driver.findElement (By.id ("Phone")).sendKeys (ConstantsAuth.PHONE_LETTERS);
+        signUpPageElements.fillForm_Exept_Phone ();
+        try { Assert.assertEquals ("WELCOME",title);}
+        catch (AssertionError e) { System.out.println("Registration is not passed");notify();}
+        System.out.println("Registration is successful");
+            signUpPageElements.open (); System.out.println("    filling UserPassword with strong password");
+        driver.findElement (By.id ("Phone")).sendKeys (ConstantsAuth.PHONE_SYMBOLS_ONLY);
+        signUpPageElements.fillForm_Exept_Phone ();
+        try { Assert.assertEquals ("WELCOME",title);}
+        catch (AssertionError e) { System.out.println("Registration is not passed");notify();}
+        System.out.println("Registration is successful");
 
 
-
+    }
+    @Test public void TestCase13() { System.out.println ("Authentification test, Organisation field test.");
+        SignUpPageElements signUpPageElements = PageFactory.initElements (driver, SignUpPageElements.class);
+        signUpPageElements.open ( );
+        System.out.println ("    filling UserPassword with strong password");
+        driver.findElement (By.id ("OrgDisplayName")).sendKeys (ConstantsAuth.ORG_SYMBOLS_ONLY);
+        signUpPageElements.fillForm_Exept_Organization ( );
+        String title = driver.findElement (By.xpath ("//*[.='WELCOME']")).getText ( );
+        try { Assert.assertEquals ("WELCOME", title);}
+        catch (AssertionError e) {System.out.println ("Registration is not passed");notify ();}
+        System.out.println ("Registration is successful");
+        signUpPageElements.open ( );System.out.println ("    filling UserPassword with strong password");
+        driver.findElement (By.id ("OrgDisplayName")).sendKeys (ConstantsAuth.ORG_NUMBERS_ONLY);
+        signUpPageElements.fillForm_Exept_Organization ( );
+        try { Assert.assertEquals ("WELCOME", title);
+        } catch (AssertionError e) { System.out.println ("Registration is not passed"); notify ( );}
+        System.out.println ("Registration is successful");
+//        signUpPageElements.open ( ); System.out.println ("    filling UserPassword with strong password");
+//        driver.findElement (By.id ("OrgDisplayName")).sendKeys (ConstantsAuth.ORG_TRUE);
+//        signUpPageElements.fillForm_Exept_Phone ( );
+//        try { Assert.assertEquals ("WELCOME", title);}
+//        catch (AssertionError e) {System.out.println ("Registration is not passed"); notify ( );}
+//        System.out.println ("Registration is successful");
+    }
 }
 //        try { Assert.assertNotNull(driver.findElement(By.xpath ("//*[.='Field cannot be empty']")).isDisplayed ());}
 //        catch (AssertionFailure e) { System.out.println("  visible");}
