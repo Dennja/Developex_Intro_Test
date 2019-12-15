@@ -8,5 +8,5 @@ public class zWebDriverSettings { public ChromeDriver driver;
         System.setProperty("webdriver.chrome.driver", "C://CH//chromedriver.exe");
         driver = new ChromeDriver(); System.out.println("START");}
     @After public  void close(){
-        //driver.quit();
+        driver.quit();
         System.out.println("FINISH");}}
