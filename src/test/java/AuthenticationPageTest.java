@@ -3,12 +3,11 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
-
 public class AuthenticationPageTest extends zWebDriverSettings {
 
     @Test
     public void TestCase1() {System.out.println ("Authentication functional test 1, all valid data");
-        PageElemet pageElement = PageFactory.initElements (driver, PageElemet.class);
+        PageElement pageElement = PageFactory.initElements (driver, PageElement.class);
         pageElement.open ();
         pageElement.fillForm ();
         String title = driver.findElement (By.xpath ("//*[.='WELCOME']")).getText ( );
@@ -22,7 +21,7 @@ public class AuthenticationPageTest extends zWebDriverSettings {
     }
     @Test
     public void TestCase2() {System.out.println ("Authentication functional test 2, 'All fields are required to fill'");
-        PageElemet pageElement = PageFactory.initElements (driver, PageElemet.class);
+        PageElement pageElement = PageFactory.initElements (driver, PageElement.class);
         pageElement.open ();
         pageElement.signupBtn.click ();
         String title = driver.getTitle ( );
@@ -88,7 +87,7 @@ public class AuthenticationPageTest extends zWebDriverSettings {
 
     @Test
     public void TestCase3() {System.out.println ("Authentication functional test 3, Emaill address field");
-        PageElemet pageElement = PageFactory.initElements (driver, PageElemet.class);
+        PageElement pageElement = PageFactory.initElements (driver, PageElement.class);
         pageElement.open ();
         System.out.println ("Entering 'numbers_only' in Email address field. Error message is...");
         pageElement.email.sendKeys (ConstantsAuth.USERNAME_NUM_ONLY);
@@ -124,7 +123,7 @@ public class AuthenticationPageTest extends zWebDriverSettings {
     }
     @Test
     public void TestCase4() {System.out.println ("Authentication functional test, FirstName field");
-        PageElemet pageElement = PageFactory.initElements (driver, PageElemet.class);
+        PageElement pageElement = PageFactory.initElements (driver, PageElement.class);
         pageElement.open();
         System.out.println ("Entering 'lower_register' in FirstName field. Error message is...");
         pageElement.firstName.sendKeys (ConstantsAuth.FIRSTNAME_LOWER);
@@ -170,28 +169,28 @@ public class AuthenticationPageTest extends zWebDriverSettings {
     }
 
     @Test public void TestCase5() {System.out.println("Authentication test 5, LastName field");
-        PageElemet pageElement = PageFactory.initElements (driver, PageElemet.class);
+        PageElement pageElement = PageFactory.initElements (driver, PageElement.class);
         pageElement.open(); System.out.println("Entering 'lower_register' in LastName field. Error message is...");
-        pageElement.laststName.sendKeys(ConstantsAuth.LASTNAME_LOWER);
+        pageElement.lastName.sendKeys(ConstantsAuth.LASTNAME_LOWER);
         pageElement.fillForm_Except_LastName ();
         String title = driver.findElement(By.xpath ("//*[.='WELCOME']")).getText();
         try { Assert.assertEquals ("WELCOME",title);}
         catch (AssertionError e) { System.out.println("Test case 5 failed. Registration is not passed");notify();}
         System.out.println ("  missing!");
         pageElement.open (); System.out.println("Entering 'symbols_only' in LastName field. Error message is...");
-        pageElement.laststName.sendKeys(ConstantsAuth.LASTNAME_SYMBOLS_ONLY);
+        pageElement.lastName.sendKeys(ConstantsAuth.LASTNAME_SYMBOLS_ONLY);
         pageElement.fillForm_Except_LastName ();
         try { Assert.assertEquals ("WELCOME",title);}
         catch (AssertionError e) { System.out.println("Test case 5 failed. Registration is not passed");notify();}
         System.out.println ("  missing!");
         pageElement.open (); System.out.println("Entering 'numbers_only' in LastName field. Error message is...");
-        pageElement.laststName.sendKeys(ConstantsAuth.LASTNAME_NUM_ONLY);
+        pageElement.lastName.sendKeys(ConstantsAuth.LASTNAME_NUM_ONLY);
         pageElement.fillForm_Except_LastName ();
         try { Assert.assertEquals ("WELCOME",title);}
         catch (AssertionError e) { System.out.println("Test case 5 failed. Registration is not passed");notify();}
         System.out.println ("  missing!");
         pageElement.open (); System.out.println("Entering '20_letters' in LastName field. Error message is...");
-        pageElement.laststName.sendKeys(ConstantsAuth.LASTNAME_20_LETTERS);
+        pageElement.lastName.sendKeys(ConstantsAuth.LASTNAME_20_LETTERS);
         pageElement.fillForm_Except_LastName ();
         try { Assert.assertEquals ("WELCOME",title);}
         catch (AssertionError e) { System.out.println("Test case 5 failed. Registration is not passed");notify();}
@@ -199,7 +198,7 @@ public class AuthenticationPageTest extends zWebDriverSettings {
         System.out.println ("Test case 5 passed successful");
     }
     @Test public void TestCase6() { System.out.println("Authentication test 6, Password strength recognition");
-        PageElemet pageElement = PageFactory.initElements (driver, PageElemet.class);
+        PageElement pageElement = PageFactory.initElements (driver, PageElement.class);
         pageElement.open(); System.out.println("Entering 'strong_password' in UserPassword field. Password perceived as...");
         pageElement.password.sendKeys (ConstantsAuth.PASSWORD_STRONG);
         pageElement.password_conf.sendKeys (ConstantsAuth.PASSWORD_STRONG);
@@ -237,7 +236,7 @@ public class AuthenticationPageTest extends zWebDriverSettings {
         System.out.println ("Test case 6 passed successful");
     }
     @Test public void TestCase7() {System.out.println("Authentication test 7, Phone field");
-        PageElemet pageElement = PageFactory.initElements (driver, PageElemet.class);
+        PageElement pageElement = PageFactory.initElements (driver, PageElement.class);
         pageElement.open(); System.out.println("Entering '11_numbers' in Phone field. Error message is...");
         pageElement.phone.sendKeys (ConstantsAuth.PHONE_NUM_11);
         pageElement.fillForm_Except_Phone ();
@@ -266,7 +265,7 @@ public class AuthenticationPageTest extends zWebDriverSettings {
         System.out.println ("Test case 7 passed successful");
     }
     @Test public void TestCase8() {System.out.println ("Authentication test 8, Organisation field");
-        PageElemet pageElement = PageFactory.initElements (driver, PageElemet.class);
+        PageElement pageElement = PageFactory.initElements (driver, PageElement.class);
         pageElement.open();
         System.out.println ("Entering 'symbols' in Phone field. Error message is...");
         pageElement.organization.sendKeys (ConstantsAuth.ORG_SYMBOLS_ONLY);

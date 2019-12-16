@@ -1,12 +1,11 @@
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class PageElemet {
+public class PageElement {
     private WebDriver driver;
 
-    public PageElemet(WebDriver driver) {this.driver = driver; }
+    public PageElement(WebDriver driver) {this.driver = driver; }
 
     public void open() {driver.get ("https://reverent-aryabhata-11cf33.netlify.com/");}
 
@@ -15,7 +14,7 @@ public class PageElemet {
     @FindBy(id = "FirstName")
     public WebElement firstName;
     @FindBy (id = "LastName")
-    public WebElement laststName;
+    public WebElement lastName;
     @FindBy (id = "UserPassword")
     public WebElement password;
     @FindBy(xpath = "//*[@id=\"registerForm\"]/fieldset/div[5]/input")
@@ -43,7 +42,7 @@ public class PageElemet {
     public void fillForm() {
         email.sendKeys (ConstantsAuth.USERNAMETRUE);
         firstName.sendKeys (ConstantsAuth.FIRSTNAMETRUE);
-        laststName.sendKeys (ConstantsAuth.LASTNAMETRUE);
+        lastName.sendKeys (ConstantsAuth.LASTNAMETRUE);
         password.sendKeys (ConstantsAuth.PASSWORD_STRONG);
         password_conf.sendKeys (ConstantsAuth.PASSWORD_STRONG);
         phone.sendKeys (ConstantsAuth.PHONETRUE);
@@ -53,7 +52,7 @@ public class PageElemet {
     public void fillForm_Except_email() {
 
         firstName.sendKeys (ConstantsAuth.FIRSTNAMETRUE);
-        laststName.sendKeys (ConstantsAuth.LASTNAMETRUE);
+        lastName.sendKeys (ConstantsAuth.LASTNAMETRUE);
         password.sendKeys (ConstantsAuth.PASSWORD_STRONG);
         password_conf.sendKeys (ConstantsAuth.PASSWORD_STRONG);
         phone.sendKeys (ConstantsAuth.PHONETRUE);
@@ -63,7 +62,7 @@ public class PageElemet {
     public void fillForm_Except_FirstName() {
         email.sendKeys (ConstantsAuth.USERNAMETRUE);
 
-        laststName.sendKeys (ConstantsAuth.LASTNAMETRUE);
+        lastName.sendKeys (ConstantsAuth.LASTNAMETRUE);
         password.sendKeys (ConstantsAuth.PASSWORD_STRONG);
         password_conf.sendKeys (ConstantsAuth.PASSWORD_STRONG);
         phone.sendKeys (ConstantsAuth.PHONETRUE);
@@ -83,7 +82,7 @@ public class PageElemet {
     public void fillForm_Except_Phone() {
         email.sendKeys (ConstantsAuth.USERNAMETRUE);
         firstName.sendKeys (ConstantsAuth.FIRSTNAMETRUE);
-        laststName.sendKeys (ConstantsAuth.LASTNAMETRUE);
+        lastName.sendKeys (ConstantsAuth.LASTNAMETRUE);
         password.sendKeys (ConstantsAuth.PASSWORD_STRONG);
         password_conf.sendKeys (ConstantsAuth.PASSWORD_STRONG);
 
@@ -93,7 +92,7 @@ public class PageElemet {
     public void fillForm_Except_Organization (){
         email.sendKeys (ConstantsAuth.USERNAMETRUE);
         firstName.sendKeys (ConstantsAuth.FIRSTNAMETRUE);
-        laststName.sendKeys (ConstantsAuth.LASTNAMETRUE);
+        lastName.sendKeys (ConstantsAuth.LASTNAMETRUE);
         password.sendKeys (ConstantsAuth.PASSWORD_STRONG);
         password_conf.sendKeys (ConstantsAuth.PASSWORD_STRONG);
         phone.sendKeys (ConstantsAuth.PHONETRUE);

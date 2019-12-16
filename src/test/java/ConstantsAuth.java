@@ -1,7 +1,4 @@
-import org.openqa.selenium.By;
-
 public class ConstantsAuth {
-
     // EMAIL OR USERNAME
     static final String USERNAMETRUE = "dennjacrafter@gmail.com";
     static final String USERNAME_NUM_ONLY = "12345";
@@ -35,8 +32,4 @@ public class ConstantsAuth {
     static final String ORG_TRUE = "Developex";
     static final String ORG_SYMBOLS_ONLY = "!@#$%^&*()_+|";
     static final String ORG_NUMBERS_ONLY = "1234567890";
-
-
-
-
 }

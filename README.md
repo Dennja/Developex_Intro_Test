@@ -1,4 +1,7 @@
-# Developex Test Task
+This test implementation involves logging the results for each item in the test case.
+Failure to pass the test does not imply the absence of bugs.
+
+# Developex Test Task (ver.1)
 
 ## Test Plan
 
